@@ -16,6 +16,7 @@ from config import (
 
 
 IMG_TPL = '<img src=\"{}\" width=\"{}\" height=\"{}\" />'
+IMG_TPL = '![{}]({})'
 
 
 CLIPBOARD_EXCEPTIONS = (
@@ -77,7 +78,7 @@ def process():
         return
 
     # markdown使用html格式,保证图片大小
-    markdown_img = IMG_TPL.format(img_uri, width, height)
+    markdown_img = IMG_TPL.format(img_file_name, img_uri)
 
     # 写入剪贴板
     write_to_pasteboard(markdown_img)
